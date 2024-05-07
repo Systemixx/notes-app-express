@@ -39,10 +39,10 @@ export function writeNotesToFile(oldNotes: Note[]): void {
  * @param {string} content - The content of the new note.
  * @param {string} user - The user associated with the new note.
  */
-export function addNote(title: string, content: string, user: string): void {
+export function addNote(title: string, content: string, user: string, categories: string[]): void {
   const oldNotes = getNotes()
   const id = oldNotes.length + 1
-  const newNote: Note = new Note(id, title, content, user)
+  const newNote: Note = new Note(id, title, content, user, categories)
   oldNotes.push(newNote)
   writeNotesToFile(oldNotes)
 }
@@ -55,10 +55,10 @@ export function addNote(title: string, content: string, user: string): void {
  * @param {string} content - The new content for the note.
  * @param {string} user - The new user associated with the note.
  */
-export function updateNote(id: number, title: string, content: string, user: string): void {
+export function updateNote(id: number, title: string, content: string, user: string, categories: string[]): void {
   const oldNotes = getNotes()
   const filteredNotes = oldNotes.filter(note => note.id !== id)
-  const newNote: Note = new Note(id, title, content, user)
+  const newNote: Note = new Note(id, title, content, user, categories)
   filteredNotes.push(newNote)
   writeNotesToFile(filteredNotes)
 }

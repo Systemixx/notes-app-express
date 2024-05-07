@@ -3,12 +3,16 @@ export class Note {
     title: string;
     content: string;
     user: string;
+    categories: string[];
+    date: Date;
 
-    constructor(id: number, title: string, content: string, user: string) {
+    constructor(id: number, title: string, content: string, user: string, categories: string[]) {
       this.id = id;
       this.title = title;
       this.content = content;
       this.user = user;
+      this.categories = categories;
+      this.date = new Date();
     }
   }
 
